@@ -1,0 +1,31 @@
+header{
+  width: 100%; /* %를 활용하면 해상도에 따라 깨지지 않음 */
+  height: 30%;
+}
+h1{
+  text-align: center; /* 문자 중앙 정렬 */
+}
+.section_img{
+  width: 100%;
+}
+.section_p{
+  height: 400px; /* 기본 텍스트 크기를 늘려 이미지가 출력될 수 있게 함 */
+  padding: 100px; /* 안 쪽 여백을 늘려 텍스트가 벽에 붙지 않게 함 */
+  background-size: 100% auto;
+  background-repeat: no-repeat; /* 이미지가 반복되는 것을 막아줌 */
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKnh-0Ft2nl_Y3PY0G2QGL4P1ygvItHQIFOzwdf7ijz-bkqBfGeQ');
+}
+.article_img{
+  padding: 10px;
+  height: 300px;
+  width: 95%; /* 사진 중앙으로 이동 */
+}
+.article_p{
+  width: 400px;
+  text-align: center;
+  margin:auto;
+}
+article{
+  float: left;
+  width: 33%; /* 아티클 넓이를 한 줄의 33%씩 차지 */
+}
