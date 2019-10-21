@@ -1,0 +1,59 @@
+<!--
+    첫 번째 text와 두 번째 text에 값을 넣고 select의 option으로 어떤 계산을 할 것인지 정한 뒤,
+     = 버튼을 누르면 정한 select에 맞게 세 번째 text에 계산값이 나오도록 하세요.
+     다 된 과제는 본인의 git에 올리면 10/23일에 확인하도록 하겠습니다.
+     자바스크립트를 사용합니다.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        input{
+
+        }
+        #div1{
+            width:500px;
+            height:30px;
+            margin:0 auto;
+            margin-top: 15%;
+            margin-left:30%;
+        }
+        select,button{
+            width:50px;
+            height:30px;
+            font-size:15px;
+            border-radius:10px;
+
+        }
+        input{
+            box-shadow: 0px 0px 0px 1px gray;
+            width:100px;
+            height:25px;
+            font-size:20px;
+            border-radius:3px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="div1">
+
+    <input type="text">&nbsp;
+    <select  id="operator">
+        <option value="sum">+</option>
+        <option value="sub">-</option>
+        <option value="div">/</option>
+        <option value="rem">%</option>
+        <option value="mul">^</option>
+    </select>&nbsp;
+    <input type="text">&nbsp;
+    <button>=</button>&nbsp;
+    <input type="text" readonly>
+
+    </div>
+</body>
+</html>
