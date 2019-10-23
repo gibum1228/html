@@ -1,24 +1,25 @@
-var inputFir = document.getElementById("input1");
-var inputSec = document.getElementById("input2");
-var resultText = document.getElementById("result");
-var oper = document.getElementById("operator");
-var btn = document.getElementById("resultBtn");
+
 
 function btn_click(){
+  var inputFir = document.getElementById("input1").value;
+  var inputSec = document.getElementById("input2").value;
+  var resultText = document.getElementById("result");
+  var oper = document.getElementById("operator").value;
+
   switch (oper) {
     case "sum":
-    resultText.value = inputFir+inputSec;
+    resultText.value = parseInt(inputFir)+parseInt(inputSec);
     break;
     case "sub":
-    resultText.value = inputFir-inputSec;
+    resultText.value = parseInt(inputFir)-parseInt(inputSec);
     break;
     case "mul":
-    resultText.value = inputFir*inputSec;
+    resultText.value = Math.pow(parseInt(inputFir), parseInt(inputSec));
     break;
     case "div":
-    resultText.value = inputFir/inputSec;
+    resultText.value = parseInt(inputFir)/parseInt(inputSec);
     break;
     case "rem":
-    resultText.value = inputFir%inputSec;
+    resultText.value = parseInt(inputFir)%parseInt(inputSec);
   }
 };
