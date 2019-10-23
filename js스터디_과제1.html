@@ -39,10 +39,12 @@
     </style>
 </head>
 <body>
+    <<script type="text/javascript" SRC="js스터디_과제1.js">
+    </script>
 
     <div id="div1">
 
-    <input type="text">&nbsp;
+    <input type="text" id="input1">&nbsp;
     <select  id="operator">
         <option value="sum">+</option>
         <option value="sub">-</option>
@@ -50,9 +52,9 @@
         <option value="rem">%</option>
         <option value="mul">^</option>
     </select>&nbsp;
-    <input type="text">&nbsp;
-    <button>=</button>&nbsp;
-    <input type="text" readonly>
+    <input type="text" id="input2">&nbsp;
+    <button id="resultBtn" onclick="btn_click();">=</button>&nbsp;
+    <input type="text" id="result" value="" readonly>
 
     </div>
 </body>
