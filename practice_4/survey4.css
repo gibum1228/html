@@ -1,0 +1,28 @@
+/* 201814066 김기범 */
+body {
+  background-color: aliceblue;
+}
+
+section {
+  background: pink;
+}
+
+h1 {
+  color: brown;
+  text-align: center;
+}
+
+p {
+  font-size: 1em;
+  text-indent: 1em;
+  font-family: 휴먼편지체;
+}
+
+label {
+  color: blue;
+}
+
+footer {
+  background: skyblue;
+  border-radius: 50px;
+}
