@@ -1,0 +1,42 @@
+/* 201814066 김기범 */
+
+header {
+  display: block;
+  margin-bottom: -15px;
+
+  background: yellow;
+}
+
+#bodylayout:after{
+  clear: both;
+  display: block;
+  content: '';
+}
+
+nav {
+  float: left;
+  width: 20%;
+  height: 1250px;
+
+  background-color: orange;
+}
+
+section {
+  float: right;
+  width: 80%;
+  height: 1250px;
+
+  background: skyblue;
+}
+
+footer {
+  display: block;
+  height: 100px;
+  padding-top: 20px;
+
+  background: violet;
+}
+
+h1 {
+  text-align: center;
+}
