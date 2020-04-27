@@ -6,57 +6,140 @@
     <link rel="stylesheet" href="pjt_1_mySKHU.css" type="text/css">
   </head>
   <body style="background: #FBEFF2">
-    <header id="headerCss">
-      <div class="topBar">
+    <header id="headerCss"> <!--개요-->
+      <div class="topBar"> <!--자기소개-->
         <ul>
           <li>성공회대학교</li>
           <li>IT융합자율학부</li>
           <li>201814066</li>
           <li>김기범</li>
-          <li style="border: none">Option</li>
+          <li style="border: none">나의 첫 웹 페이지....</li>
         </ul>
+      </div>
+      <div> <!--인사말-->
+          <p>어서오세요. 저에 대해 알아보는 홈페이지입니다. 본문이 기니 앵커를 이용해서 봐주세요!</p>
       </div>
       <div class="banner">
         <img src="image/main_banner_2.jpg" alt="메인 배너">
         <p><strong>나의 대학 생활</strong></p>
       </div>
     </header>
-    <nav id="navCss">
-      <ul>
-        <li>학기 목표</li>
-        <li>수업 시간표</li>
-        <li>수강 과목 소개</li>
-        <li>나의 슬기로운 자가 학습 활동 소개</li>
-        <li>동아리, 소모임</li>
-      </ul>
+    <nav id="navCss"> <!--목차-->
+      <div>
+        <ul>
+          <li><a class="menuLink" href="#goal">학기 목표</a></li>
+          <li><a class="menuLink" href="#schedule">수업 시간표</a></li>
+          <li><a class="menuLink" href="#myClass">수강 과목 소개</a></li>
+          <li><a class="menuLink" href="#myStudy">나의 학습 활동 소개</a></li>
+          <li><a class="menuLink" href="#mentorring">멘토링</a></li>
+          <li><a class="menuLink" href="#work">아르바이트</a></li>
+        </ul>
+      </div>
     </nav>
-    <section id="summarySection">
-      <header>
-        <div class="summary">
-          <span><strong>개요</strong></span>
-          <dl>
-            <dt><strong>자기소개┓</strong></dt>
-            <dd>안녕하세요. 저는 IT융합자율학부 18학번 김기범입니다. 이번에 웹 개발 입문을 통해 처음으로 html을 사용하는 중입니다.</dd>
-          </dl>
-          <dl>
-            <dt><strong>인사말┓</strong></dt>
-            <dd>디자인이 엄청난 홈페이지는 아니기 때문에 저를 소개하는 글에 집중해주시면 감사하겠습니다.^^</dd>
-          </dl>
-        </div>
-      </header>
-      <article class="">
+    <section id="mainSection"> <!--본문-->
+      <div class="">
+        <h4 id="goal">학기 목표</h4> <!--앵커-->
+        <p>
+          <ol>
+            <li>
+              <dl>
+                <dt>다양한 프로젝트 경험하기</dt>
+                <dd>취업에 바로 뛰어들었을 때 금방 적응하기 위해서</dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>수강하고 있는 과목 A+ 받기</dt>
+                <dd>성적 장학금도 받고 학점도 유지하기 위해서</dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>IT 관련 국가 자격증 취득</dt>
+                <dd>기본적인 컴활1급, 정보 처리 기사, 네트워크 관리사 ... 등등</dd>
+              </dl>
+            </li>
+          </ol>
+        </p>
+      </div>
+      <div class="">
+        <h4 id="schedule">수업 시간표</h4>
+        <table border="1" style="text-align: center">
+          <thead>
+            <tr>
+              <td></td>
+              <th>월</th>
+              <th>화</th>
+              <th>수</th>
+              <th>목</th>
+              <th>금</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>9:00</th><td rowspan="7"></td><td rowspan="3">고급 Java 프로그래밍</td><td rowspan="3">컴퓨터 그래픽스</td><td rowspan="6"></td><td rowspan="10"></td>
+            </tr>
+            <tr>
+              <th>10:00</th>
+            </tr>
+            <tr>
+              <th>11:00</th>
+            </tr>
+            <tr>
+              <th>12:00</th><td rowspan="3"></td><td rowspan="3">노래로 보는 한국 사회</td>
+            </tr>
+            <tr>
+              <th>13:00</th>
+            </tr>
+            <tr>
+              <th>14:00</th>
+            </tr>
+            <tr>
+              <th>15:00</th><td rowspan="2">알고리즘</td><td rowspan=""></td><td rowspan="2">알고리즘</td>
+            </tr>
+            <tr>
+              <th>16:00</th><td rowspan="2">웹 개발 입문</td><td rowspan="2">웹 개발 입문</td>
+            </tr>
+            <tr>
+              <th>17:00</th><td rowspan="2"></td><td rowspan="2"></td>
+            </tr>
+            <tr>
+              <th>18:00</th><td>과정지도 3-1</td><td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="">
+        <h4 id="myClass">수강 과목 소개</h4>
+        <p>
 
-      </article>
-      <footer>
+        </p>
+      </div>
+      <div class="">
+        <h4 id="myStudy">나의 학습 활동 소개</h4>
+        <p>
 
-      </footer>
+        </p>
+      </div>
+      <div class="">
+        <h4 id="mentorring">멘토링</h4>
+        <p>
+          2학년 1학기때부터 지금까지 매학기마다 동반 멘토링, 한솥밥 등 교내 멘토링 프로그램에 멘토로 참여하고 있습니다.<br>
+          주로 자바 프로그래밍, 데이터베이스 개론, 파이썬 프로그래밍, C 프로그래밍 등 후배들이 어려워할만한 프로그래밍 언어를 스터디 과목으로 선택해 멘티, 튜티에게 도움을 주고 있습니다.<br>
+          멘토링을 하면서 공부했던 과목을 다시 보니 더욱 상기되고 저 스스로 멘티에게 쉽게 설명할 수 있는 방법을 연구하는 제 모습을 볼 수 있었습니다.<br>
+          그리고 선후배 간 사이가 좋아서 사회성도 기를 수 있고 스터디 지원금으로 다같이 맛있는 걸 사먹거나 용돈벌이를 할 수 있습니다.
+        </p>
+      </div>
+      <div class="">
+        <h4 id="work">아르바이트</h4>
+        <p>
+          현재 따로 아르바이트는 하고 있지 않습니다. 대신 국가 근로에 선발되어 교내 근로생으로 아르바이트를 대신하고 있습니다.<br>
+          이번에 교내 근로생은 처음 해보면서 많은 사람들이랑 어울리고 직장 생활과 비슷하게 지내다보니 사회성을 기를 수 있었습니다.<br>
+          국가 근로를 하기 전에는 빵집, 편의점, 카페, 호텔 등 다양한 알바를 해왔습니다.
+        </p>
+      </div>
     </section>
-    <section id="mainSection">
-      <article class="">
-
-      </article>
-    </section>
-    <footer>
+    <footer> <!--맺는 말-->
 
     </footer>
   </body>
