@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>8장 실습문제 6번</title>
+        <script>
+            function change(){ // 입력받은 s를 p에 넣어주기
+                var p = document.getElementById("firstP");
+                var s = prompt("HTML 텍스트 혹은 그냥 텍스트를 입력하세요", "");
+
+                p.innerHTML = s;
+            }
+        </script>
+    </head>
+    <body>
+        <h3>innerHTML</h3>
+        <hr>
+        <p id="firstP" onclick="change()">이번 여름에는 어디로 여행을 갈까요?</p>
+    </body>
+</html>
