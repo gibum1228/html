@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>계산기 만들기</title>
+	<script>
+		function backward() {
+			var exp = document.getElementById("exp");
+			var len = exp.value.length;
+			if(len == 0)
+				return;
+			else
+				exp.value = exp.value.substr(0, len-1);
+		}
+
+		function clearexp() {
+			var exp = document.getElementById("exp");
+			exp.value = "0";
+		}
+
+		function addInput(value) {
+			var exp = document.getElementById("exp");
+			if(exp.value == "0")
+				exp.value = value;
+			else
+				exp.value += value;
+		}
+
+		function calulate() {
+			var exp = document.getElementById("exp");
+			exp.value = eval(exp.value);
+		}
+	</script>
+	<style>
+		tr {
+			text-align : center;
+		}
+		td {
+			width : 80px;
+		}
+		input[type=button] {
+			width : 60px;
+			border-radius: 5px;
+		}
+		input[type=button]:hover {
+			background-color: darkgrey;
+		}
+		input[type=button]:focus {
+			background-color: gray;
+		}
+	</style>
+</head>
+<body>
+	<h3>계산기 만들기</h3>
+	<hr>
+	<form>
+		<table>
+			<tr>
+				<td colspan="4"><input type="text" id="exp" value="0" size="50" style="background-color: violet; border-radius: 10px; border: 5px solid orange;"></td>
+			</tr>
+			<tr>
+				<td><input type="button" id="back" value="BACK" onclick="backward()"></td>
+				<td><input type="button" id="ce" value="CE" onclick="clearexp()"></td>
+				<td><input type="button" id="c" value="C" onclick="clearexp()"></td>
+				<td><input type="button" id="equal" value="=" onclick="calulate()"></td>
+			</tr>
+			<tr>
+				<td><input type="button" id="seven" value="7" onclick="addInput(this.value)"></td>
+				<td><input type="button" id="eight" value="8" onclick="addInput(this.value)"></td>
+				<td><input type="button" id="nine" value="9" onclick="addInput(this.value)"></td>
+				<td><input type="button" id="div" value="/" onclick="addInput(this.value)"></td>
+			</tr>
+			<tr>
+				<td><input type="button" id="four" value="4" onclick="addInput(this.value)"></td>
+				<td><input type="button" id="five" value="5" onclick="addInput(this.value)"></td>
+				<td><input type="button" id="six" value="6" onclick="addInput(this.value)"></td>
+				<td><input type="button" id="mul" value="*" onclick="addInput(this.value)"></td>
+			</tr>
+			<tr>
+				<td><input type="button" id="one" value="1" onclick="addInput(this.value)"></td>
+				<td><input type="button" id="two" value="2" onclick="addInput(this.value)"></td>
+				<td><input type="button" id="three" value="3" onclick="addInput(this.value)"></td>
+				<td><input type="button" id="minus" value="-" onclick="addInput(this.value)"></td>
+			</tr>
+			<tr>
+				<td><input type="button" id="none" value="NONE"></td>
+				<td><input type="button" id="zero" value="0" onclick="addInput(this.value)"></td>
+				<td><input type="button" id="Squared" value="^" onclick="addInput(this.value)"></td>
+				<td><input type="button" id="plus" value="+" onclick="addInput(this.value)"></td>
+			</tr>
+			<tr>
+				<td><input type="button" id="none" value="NONE"></td>
+				<td><input type="button" id="none" value="NONE"></td>
+				<td><input type="button" id="none" value="NONE"></td>
+				<td><a href="pjt_1_mySKHU.html"><input type="button" id="HOME" value="HOME" onclick=""></a></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
