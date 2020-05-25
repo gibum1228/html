@@ -179,3 +179,42 @@ body {
 #footer div {
   margin: 0px 30px;
 }
+/*계산기*/
+#Calculate table{
+  border: 2px solid black;
+  border-collapse: collapse;
+  padding: 60px 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#Calculate tr {
+  text-align : center;
+}
+#Calculate td {
+  width : 80px;
+  border: none;
+}
+#Calculate input[type=text] {
+  width: 350px;
+  height: 50px;
+  background-color: lightblue;
+  border-radius: 10px;
+  border: 5px solid darkblue;
+  margin-bottom: 50px;
+  font-style: inherit;
+  line-height: normal;
+  font-size: 30pt;
+}
+#Calculate input[type=button] {
+  outline: none;
+  width : 70px;
+  height: 30px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+#Calculate input[type=button]:hover {
+  background-color: darkgrey;
+}
+#Calculate input[type=button]:focus {
+  background-color: gray;
+}
