@@ -1,0 +1,91 @@
+body {
+    margin: 10px 20px;
+    padding: 0;
+    font-family: Comic Sans MS, monospace;
+    background-color: snow;
+}
+
+/*TOP 버튼*/
+#fixed {
+    position: fixed;
+    bottom: 20px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    background: skyblue;
+    border: 1px solid black;
+}
+#fixed a {
+    text-decoration: none;
+    color: white;
+}
+#fixed:hover {
+    color: red;
+    background-color: blue;
+}
+
+/*헤더*/
+#headerCss {
+    width: 100%;
+    height: 350px;
+}
+#headerCss img {
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+}
+
+/*목차*/
+#navCss {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 50px;
+}
+#navCss ul {
+    width: 100%;
+    height: 50px;
+}
+#navCss ul li {
+    float: left;
+    list-style: none;
+    background: skyblue;
+    text-align: center;
+    vertical-align: middle;
+    width: 13.5%;
+    line-height: 50px;
+}
+#navCss .menuLink {
+    display: block;
+    text-decoration: none;
+    color: white;
+    width: 100%;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: "Trebuchet MS", Dotum, Arial;
+}
+#navCss .menuLink:hover {
+    font-size: 2em;
+    background-color: blue;
+}
+
+/*사이드*/
+#asideCss {
+    float: left;
+    width: 20%;
+    height: 50%;
+    background-color: slateblue;
+}
+
+/*본문*/
+#sectionCss {
+    float: right;
+    width: 80%;
+    height: 70%;
+    background-color: gray;
+}
+
+/*마무리*/
+#footerCss {
+    width: 100%;
+}
