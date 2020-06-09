@@ -82,7 +82,11 @@ body {
     float: right;
     width: 80%;
     height: 70%;
-    background-color: gray;
+}
+#sectionCss div {
+    margin-bottom: 10px;
+    border-radius: 30px;
+    border: 2px solid skyblue;
 }
 
 /*마무리*/
