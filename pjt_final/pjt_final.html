@@ -7,7 +7,7 @@
 
     </script>
     <link rel="stylesheet" href="pjt_final.css">
-    <body onload="showImage()">
+    <body id="TOP" onload="showImage()">
         <div id="fixed"> <!--탑 버튼-->
             <p>
                 <a href="#TOP">
@@ -19,7 +19,7 @@
             <img id="introImg">
         </header> <!--END-->
         <nav id="navCss"> <!--START-->
-            <div id="TOP">
+            <div>
                 <ul>
                     <li><a class="menuLink" href="#goal">학기 목표</a></li>
                     <li><a class="menuLink" href="#schedule">수업 시간표</a></li>
@@ -33,7 +33,14 @@
         </nav> <!--END-->
         <aside id="asideCss"> <!--START-->
             <div>
-                test
+                <div id="profile">
+                  <img src="" alt="프로필사진">
+                </div>
+                
+                <form><!--방명록 쓰기-->
+                  <textarea cols="40" rows="20" placeholder="방명록 작성"></textarea><br>
+                  <input type="submit" value="방명록 전송">
+                </form>
             </div>
         </aside> <!--END-->
         <section id="sectionCss"> <!--START-->
