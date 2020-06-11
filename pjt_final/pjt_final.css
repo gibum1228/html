@@ -88,17 +88,25 @@ body {
     height: 400px;
     margin-top: 50px;
 }
-/*방명록*/
-.guestBook {
-    margin: 50px 0px;
-}
-/*설문조사*/
+/*설문조사 바로가기*/
 .survey {
     width: 300px;
     height: 75px;
     margin: auto;
     text-align: center;
     border: 1px solid gray;
+}
+/*계산기 바로가기*/
+.calcul {
+    width: 300px;
+    height: 75px;
+    margin: auto;
+    text-align: center;
+    border: 1px solid gray;
+}
+/*방명록*/
+.guestBook {
+    margin: 50px 0px;
 }
 /*END*/
 /*START*/
