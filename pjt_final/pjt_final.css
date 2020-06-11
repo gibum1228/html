@@ -78,9 +78,9 @@ body {
 .asideCss {
     float: left;
     width: 20%;
-    height: 50%;
     text-align: center;
-    background-color: slateblue;
+    border: 2px solid slateblue;
+    border-radius: 30px;
 }
 /*프로필*/
 .profile img {
@@ -113,18 +113,94 @@ body {
 /*본문*/
 .sectionCss {
     float: right;
-    width: 80%;
-    height: 70%;
-}
-.sectionCss div {
-    margin-bottom: 10px;
+    width: 78%;
     border-radius: 30px;
     border: 2px solid skyblue;
 }
+/*본문 껍데기*/
+.sectionCss div {
+    margin-bottom: 10px;
+}
+/*본문 하이퍼링크*/
+.sectionCss a {
+    text-decoration: none;
+    background: gray;
+    color: white;
+}
+.sectionCss a:hover {
+    color: red;
+    background: black;
+}
+/*본문 h4*/
+.sectionCss h4 {
+    color: white;
+    font-size: 40px;
+    text-shadow: 0px 0px 5px darkblue;
+    background: #F7BE81;
+    border-radius: 50px;
+    text-align: center;
+}
+/*수업 시간표*/
+.schedule table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    width: 100px;
+    height: 20px;
+    margin: 50px auto;
+}
+.schedule thead {
+    background: darkgray;
+}
+.schedule th, td {
+    padding: 20px;
+}
+.schedule th {
+    text-align: center;
+}
+/*수강 과목 소개*/
+.classList div {
+    display: table;
+    width: 90%;
+    margin: 20px auto;
+}
+.classList div div {
+    display: table-cell;
+    vertical-align: middle;
+    width: 33%;
+    height: 20%;
+}
+.classList table {
+    border: 15px ridge gray;
+    border-collapse: collapse;
+    text-align: center;
+}
+.classList table img {
+    width: 350px;
+    height: 420px;
+}
+.classList dl {
+    border: 15px ridge gray;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.classList ul {
+    border: 15px ridge gray;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.classList thead {
+    background: white;
+}
+.classList dt {
+    font-size: 20px;
+}
+/*나의 학습 활동 소개*/
+.myStudy li {
+    font-size: 20px;
+}
 /*END*/
 /*START*/
-/*마무리*/
-.footerCss {
-    width: 100%;
-}
 /*END*/
