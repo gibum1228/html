@@ -169,13 +169,201 @@ body {
     border-radius: 50%;
     z-index: 1px;
 }
+/*오른쪽 위*/
+#min14 {
+    top: calc(140px - 20px);
+    right: calc(140px - 130px);
+}
+#min13 {
+    top: calc(140px - 30px);
+    right: calc(140px - 128px);
+}
+#min12 {
+    top: calc(140px - 40px);
+    right: calc(140px - 125px);
+}
+#min11 {
+    top: calc(140px - 48px);
+    right: calc(140px - 120px);
+}
+#min9 {
+    top: calc(140px - 80px);
+    right: calc(140px - 102px);
+}
+#min8 {
+    top: calc(140px - 87px);
+    right: calc(140px - 95px);
+}
+#min7 {
+    top: calc(140px - 95px);
+    right: calc(140px - 88px);
+}
+#min6 {
+    top: calc(140px - 100px);
+    right: calc(140px - 80px);
+}
+#min4 {
+    top: calc(140px - 121px);
+    right: calc(140px - 48px);
+}
+#min3 {
+    top: calc(140px - 125px);
+    right: calc(140px - 38px);
+}
+#min2 {
+    top: calc(140px - 128px);
+    right: calc(140px - 28px);
+}
+#min1 {
+    top: calc(140px - 130px);
+    right: calc(140px - 18px);
+}
+/*오른쪽 아래*/
+#min29 {
+    bottom: calc(140px - 130px);
+    right: calc(140px - 18px);
+}
+#min28 {
+    bottom: calc(140px - 128px);
+    right: calc(140px - 28px);
+}
+#min27 {
+    bottom: calc(140px - 125px);
+    right: calc(140px - 38px);
+}
+#min26 {
+    bottom: calc(140px - 121px);
+    right: calc(140px - 48px);
+}
+#min24 {
+    bottom: calc(140px - 100px);
+    right: calc(140px - 80px);
+}
+#min23 {
+    bottom: calc(140px - 95px);
+    right: calc(140px - 88px);
+}
+#min22 {
+    bottom: calc(140px - 87px);
+    right: calc(140px - 95px);
+}
+#min21 {
+    bottom: calc(140px - 80px);
+    right: calc(140px - 102px);
+}
+#min19 {
+    bottom: calc(140px - 48px);
+    right: calc(140px - 120px);
+}
+#min18 {
+    bottom: calc(140px - 40px);
+    right: calc(140px - 125px);
+}
+#min17 {
+    bottom: calc(140px - 30px);
+    right: calc(140px - 128px);
+}
+#min16 {
+    bottom: calc(140px - 20px);
+    right: calc(140px - 130px);
+}
+/*왼쪽 아래*/
+#min31 {
+    bottom: calc(140px - 130px);
+    left: calc(140px - 18px);
+}
+#min32 {
+    bottom: calc(140px - 128px);
+    left: calc(140px - 28px);
+}
+#min33 {
+    bottom: calc(140px - 125px);
+    left: calc(140px - 38px);
+}
+#min34 {
+    bottom: calc(140px - 121px);
+    left: calc(140px - 48px);
+}
+#min36 {
+    bottom: calc(140px - 100px);
+    left: calc(140px - 80px);
+}
+#min37 {
+    bottom: calc(140px - 95px);
+    left: calc(140px - 88px);
+}
+#min38 {
+    bottom: calc(140px - 87px);
+    left: calc(140px - 95px);
+}
+#min39 {
+    bottom: calc(140px - 80px);
+    left: calc(140px - 102px);
+}
+#min41 {
+    bottom: calc(140px - 48px);
+    left: calc(140px - 120px);
+}
+#min42 {
+    bottom: calc(140px - 40px);
+    left: calc(140px - 125px);
+}
+#min43 {
+    bottom: calc(140px - 30px);
+    left: calc(140px - 128px);
+}
+#min44 {
+    bottom: calc(140px - 20px);
+    left: calc(140px - 130px);
+}
+/*왼쪽 위*/
+#min46 {
+    top: calc(140px - 20px);
+    left: calc(140px - 130px);
+}
+#min47 {
+    top: calc(140px - 30px);
+    left: calc(140px - 128px);
+}
+#min48 {
+    top: calc(140px - 40px);
+    left: calc(140px - 125px);
+}
+#min49 {
+    top: calc(140px - 48px);
+    left: calc(140px - 120px);
+}
+#min51 {
+    top: calc(140px - 80px);
+    left: calc(140px - 102px);
+}
+#min52 {
+    top: calc(140px - 87px);
+    left: calc(140px - 95px);
+}
+#min53 {
+    top: calc(140px - 95px);
+    left: calc(140px - 88px);
+}
+#min54 {
+    top: calc(140px - 100px);
+    left: calc(140px - 80px);
+}
+#min56 {
+    top: calc(140px - 121px);
+    left: calc(140px - 48px);
+}
+#min57 {
+    top: calc(140px - 125px);
+    left: calc(140px - 38px);
+}
 #min58 {
-    top: calc(140px - 122.5px);
-    left: calc(140px - 25px);
+    top: calc(140px - 128px);
+    left: calc(140px - 28px);
 }
 #min59 {
-    top: calc(140px - 125px);
-    left: calc(140px - 17.5px);
+    top: calc(140px - 130px);
+    left: calc(140px - 18px);
 }
 /*중앙점*/
 #center {
@@ -245,25 +433,26 @@ body {
     height: 400px;
     margin-top: 50px;
 }
-/*설문조사 바로가기*/
-.survey {
+/*링크 바로가기*/
+.linkBox {
     width: 300px;
     height: 75px;
-    margin: auto;
-    text-align: center;
-    border: 2px solid gray;
-}
-/*계산기 바로가기*/
-.calcul {
-    width: 300px;
-    height: 75px;
-    margin: auto;
+    margin:  0px auto;
     text-align: center;
     border: 2px solid gray;
 }
 /*방명록*/
 .guestBook {
-    margin: 50px 0px;
+    margin: 0px auto;
+    margin-bottom: 50px;
+}
+#guestBookBox li {
+    width: 100%;
+    border-top: 1px solid gray;
+    list-style: none;
+    padding-left: 0px;
+    margin-left: 0px;
+    text-align: left;
 }
 /*END*/
 /*START*/

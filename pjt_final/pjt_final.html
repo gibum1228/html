@@ -42,11 +42,28 @@
                   김기범(201814066)
                 </p>
                 <br>
-                <div class="survey" onclick="window.open('pjt_final_survey.html', '_blank', 'width=700, height=700, left=600, top=0')">
+                <div style="margin: auto; width: 300px; border-style: inset;">
+                  <p style="width: 100%;">
+                    안녕하세요. 저는 IT융합자율학부 18학번 김기범입니다.
+                    사용하는 언어는 C, Java가 있지만, 이번 웹 개발 입문 강의를 통해 html, css, javascript 사용법을 익혔습니다.
+                    이 홈페이지는 웹 개발 입문 강의에서 배운 것만 적용시킨 홈페이지입니다.
+                  </p>
+                </div>
+                <div class="linkBox" onclick="window.open('pjt_final_survey.html', '_blank', 'width=700, height=700, left=600, top=0')">
                   <img src="image/survey.png" alt="설문조사" style="width: 100%; height: 100%;">
                 </div>
-                <div class="calcul" onclick="window.open('pjt_final_calculate.html', '_blank', 'width=700, height=900, left=700, top=0')">
+                <div class="linkBox" onclick="window.open('pjt_final_calculate.html', '_blank', 'width=700, height=900, left=700, top=0')">
                   <img src="image/calculate.png" alt="계산기" style="width: 100%; height: 100%;">
+                </div>
+                <div class="linkBox" onclick="window.open('pjt_final_draw.html', '_blank', 'width=1400, height=650, left=400, top=200')">
+                  <img src="image/draw.png" alt="그림판" style="width: 100%; height: 100%;">
+                </div>
+                <form class="guestBook"><!--방명록 쓰기-->
+                  <textarea id="guestExp" cols="40" rows="10" placeholder="방명록 작성" value=""></textarea><br>
+                  <input type="button" value="방명록 전송" onclick="addGuestBook()">
+                </form>
+                <div id="guestBookBox" style="width: 300px; margin: 0px auto; border: 1px solid gray">
+                  <h3>실시간 발자국</h3>
                 </div>
                 <br>
                 <div class="container"><!--시계-->
@@ -118,11 +135,6 @@
                   <div id="minute"></div>
                   <div id="second"></div>
                 </div>
-                <br>
-                <form class="guestBook"><!--방명록 쓰기-->
-                  <textarea cols="40" rows="10" placeholder="방명록 작성" value=""></textarea><br>
-                  <input type="button" value="방명록 전송" onclick="alert('방명록 전송 완료')">
-                </form>
             </div>
         </aside> <!--END-->
         <section class="sectionCss"> <!--START-->
@@ -582,7 +594,7 @@
                 </div>
             </article><!--END-->
             <article><!--START-->
-              <div>
+              <div style="margin-bottom: 50px;">
                 <h4>학기 마무리 소감</h4>
                 <p>
                   웹 개발 입문을 통해 html과 css, 그리고 javascript를 처음으로 배울 수 있었습니다. html을 접해본 적이 없었기에 처음에 이 과목에 적응하느라 힘들었다. 하지만 교수님이 강의를 통해 설명해주시고
