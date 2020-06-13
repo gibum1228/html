@@ -160,5 +160,5 @@ const analogClock = new AnalogClock({
     theme: 'dark',
     fontSize: 36,
     wrapper: document.body
-})
+});
 analogClock.start()
