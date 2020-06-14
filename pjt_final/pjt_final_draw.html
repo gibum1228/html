@@ -6,15 +6,16 @@
             var canvas, context;
             var tool = new Array();
             tool = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-            // 연필(0), 직선(1), 타원(2), 사각형(3), 삼각형(4), 원(5), 형광펜(6)
+            // 연필(0), 직선(1), 사각형(2), 꽉 찬 사각형(3), 타원(4), 원(5), 삼각형(6), 형광펜(7)
             var nowTool = tool[0];
 
             // 초기화
             function init() {
                 canvas = document.getElementById("myCanvas");
                 context = canvas.getContext("2d");
-                context.lineWidth = "black";
+                context.lineWidth = document.getElementById("widthInput").value;
                 context.strokeStyle = document.getElementById("colorInput").value;
+                context.fillStyle = document.getElementById("colorInput").value;
 
                 canvas.addEventListener("mousemove", function(e) { move(e) }, false);
                 canvas.addEventListener("mousedown", function(e) { down(e) }, false);
@@ -23,20 +24,33 @@
             }
 
             var startX = 0, startY = 0; // 드래깅동안, 처음 마우스가 눌러진 좌표
+            var curX = 0, curY = 0;
             var dragging = false;
             function draw(curX, curY) {
                 switch(nowTool){
                     case 0:
+                    case 1:
                         context.beginPath();
                         context.moveTo(startX, startY);
                         context.lineTo(curX, curY);
                         context.stroke();
+                        break;
+                    case 2:
+                        context.beginPath();
+                        context.strokeRect(startX, startY, curX - startX, curY - startY);
+                        break;
+                    case 3:
+                        context.beginPath();
+                        context.fillRect(startX, startY, curX - startX, curY - startY);
                         break;
                 }
             }
             function down(e) {
                 switch(nowTool){
                     case 0:
+                    case 1:
+                    case 2:
+                    case 3:
                         startX = e.offsetX;
                         startY = e.offsetY;
                         dragging = true;
@@ -45,6 +59,19 @@
             }
             function up(e) {
                 dragging = false;
+                switch(nowTool){
+                    case 0:
+                        dragging = false;
+                        break;
+                    case 1:
+                    case 2:
+                    case 3:
+                        var curX = e.offsetX;
+                        var curY = e.offsetY;
+                        draw(curX, curY);
+                        dragging = false;
+                        break;
+                }
             }
             function move(e) {
                 switch(nowTool){
@@ -56,6 +83,17 @@
                         draw(curX, curY);
                         startX = curX;
                         startY = curY;
+                        break;
+                    case 1:
+                    case 2:
+                    case 3:
+                        if(!dragging){
+                            return;
+                        }
+                        context.clearRect(0, 0, canvas.width, canvas.height);
+                        var curX = e.offsetX;
+                        var curY = e.offsetY;
+                        draw(curX, curY);
                         break;
                 }
                 
@@ -71,6 +109,11 @@
             // 툴 설정
             function setTool(toolNum) {
                 nowTool = tool[toolNum];
+            }
+            // 색깔 바꾸기
+            function changeColor(value) {
+                context.strokeStyle = value;
+                context.fillStyle = value;
             }
         </script>
         <style>
@@ -124,7 +167,7 @@
                 <tr>
                     <td><input type="button" id="clearBtn" value="C" onclick="canvClear()"></td>
                     <td><input type="number" id="widthInput" value="5" min="0" max="30" onchange="context.lineWidth=this.value"></td>
-                    <td><input type="color" id="colorInput" value="#000000" onchange="context.strokeStyle=this.value"></td>
+                    <td><input type="color" id="colorInput" value="#000000" onchange="changeColor(this.value)"></td>
                     <td><input type="button" value="빨강" onclick="context.strokeStyle = 'red'"></td>
                     <td><input type="button" value="파랑" onclick="context.strokeStyle = 'blue'"></td>
                     <td><input type="button" value="하늘" onclick="context.strokeStyle = 'skyblue'"></td>
@@ -136,6 +179,9 @@
                 </tr>
                 <tr>
                     <td><input type="button" value="연필" onclick="setTool(0)"></td>
+                    <td><input type="button" value="선" onclick="setTool(1)"></td>
+                    <td><input type="button" value="사각형" onclick="setTool(2)"></td>
+                    <td><input type="button" value="꽉 찬 사각형" onclick="setTool(3)"></td>
                 </tr>
             </table>
         </div>
