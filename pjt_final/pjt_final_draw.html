@@ -3,35 +3,145 @@
     <head>
         <title>그림판</title>
         <script>
+            var canvas, context;
+            var tool = new Array();
+            tool = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+            // 연필(0), 직선(1), 타원(2), 사각형(3), 삼각형(4), 원(5), 형광펜(6)
+            var nowTool = tool[0];
 
+            // 초기화
+            function init() {
+                canvas = document.getElementById("myCanvas");
+                context = canvas.getContext("2d");
+                context.lineWidth = "black";
+                context.strokeStyle = document.getElementById("colorInput").value;
+
+                canvas.addEventListener("mousemove", function(e) { move(e) }, false);
+                canvas.addEventListener("mousedown", function(e) { down(e) }, false);
+                canvas.addEventListener("mouseup", function(e) { up(e) }, false);
+                canvas.addEventListener("mouseout", function(e) { out(e) }, false);
+            }
+
+            var startX = 0, startY = 0; // 드래깅동안, 처음 마우스가 눌러진 좌표
+            var dragging = false;
+            function draw(curX, curY) {
+                switch(nowTool){
+                    case 0:
+                        context.beginPath();
+                        context.moveTo(startX, startY);
+                        context.lineTo(curX, curY);
+                        context.stroke();
+                        break;
+                }
+            }
+            function down(e) {
+                switch(nowTool){
+                    case 0:
+                        startX = e.offsetX;
+                        startY = e.offsetY;
+                        dragging = true;
+                        break;
+                }
+            }
+            function up(e) {
+                dragging = false;
+            }
+            function move(e) {
+                switch(nowTool){
+                    case 0:
+                        if(!dragging){
+                            return; // 마우스가 눌러지지 않았으면 리턴
+                        }
+                        var curX = e.offsetX, curY = e.offsetY;
+                        draw(curX, curY);
+                        startX = curX;
+                        startY = curY;
+                        break;
+                }
+                
+            }
+            function out(e) {
+                dragging = false;
+            }
+
+            // 캔버스 화면 지우기
+            function canvClear() {
+                context.clearRect(0, 0, canvas.width, canvas.height);
+            }
+            // 툴 설정
+            function setTool(toolNum) {
+                nowTool = tool[toolNum];
+            }
         </script>
         <style>
             body {
-                width: 100%;
-                height: 100%;
+                color: white;
+                background: darkslategray;
             }
             h4 {
                 text-align: center;
             }
+            #myCanvas {
+                display: block;
+                margin: 50px auto;
+            }
             .tool {
-                width: 20%;
+                width: 85%;
                 border-radius: 25px;
                 border: 3px solid gray;
+                background: gray;
+                margin: auto;
             }
-            .paper {
-                width: 70%;
-                border: 3px solid black;
+            .tool input[type="number"] {
+                width: 50px;
+                height: 50px;
+                text-align: center;
+            }
+            .tool input[type="color"] {
+                width: 50px;
+                height: 50px;
+            }
+            .tool input[type="button"] {
+                width: 50px;
+                height: 50px;
+            }
+            .footer {
+                width: 100%;
+                height: 50px;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                text-align: center;
+                background: black;
             }
         </style>
     </head>
-    <body>
+    <body onload="init()">
         <h4>그림 실력을 뽐내봐요</h4>
-        <hr>
+        <hr style="border-color: black;">
         <div class="tool">
-            test
+            <table style="padding: 10px 20px; margin: auto;">
+                <tr>
+                    <td><input type="button" id="clearBtn" value="C" onclick="canvClear()"></td>
+                    <td><input type="number" id="widthInput" value="5" min="0" max="30" onchange="context.lineWidth=this.value"></td>
+                    <td><input type="color" id="colorInput" value="#000000" onchange="context.strokeStyle=this.value"></td>
+                    <td><input type="button" value="빨강" onclick="context.strokeStyle = 'red'"></td>
+                    <td><input type="button" value="파랑" onclick="context.strokeStyle = 'blue'"></td>
+                    <td><input type="button" value="하늘" onclick="context.strokeStyle = 'skyblue'"></td>
+                    <td><input type="button" value="초록" onclick="context.strokeStyle = 'green'"></td>
+                    <td><input type="button" value="핑크" onclick="context.strokeStyle = 'pink'"></td>
+                    <td><input type="button" value="노랑" onclick="context.strokeStyle = 'yellow'"></td>
+                    <td><input type="button" value="회색" onclick="context.strokeStyle = 'gray'"></td>
+                    <td><input type="button" value="검정" onclick="context.strokeStyle = 'black'"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="연필" onclick="setTool(0)"></td>
+                </tr>
+            </table>
         </div>
-        <div class="paper">
-            test    
+        <canvas id="myCanvas" style="background: aliceblue;" width="1500" height="500"></canvas>
+        <div class="footer">
+            <p>IT융합자율학부 201814066 김기범</p>
         </div>
     </body>
 </html>
