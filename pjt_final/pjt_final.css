@@ -520,7 +520,7 @@ body {
     display: table-cell;
     vertical-align: middle;
     width: 33%;
-    height: 20%;
+    height: 700px;
 }
 .classList table {
     border: 15px ridge gray;
@@ -533,13 +533,13 @@ body {
 }
 .classList dl {
     border: 15px ridge gray;
-    height: 500px;
+    height: 683px;
     margin-left: auto;
     margin-right: auto;
 }
 .classList ul {
     border: 15px ridge gray;
-    height: 500px;
+    height: 683px;
     margin-left: auto;
     margin-right: auto;
 }

@@ -6,7 +6,7 @@
             var canvas, context;
             var tool = new Array();
             tool = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-            // 연필(0), 직선(1), 테두리 사각형(2), 꽉 찬 사각형(3), 테두리 원(4), 꽉 찬 원(5), 삼각형(6), 형광펜(7)
+            // 연필(0), 직선(1), 테두리 사각형(2), 꽉 찬 사각형(3), 테두리 원(4), 꽉 찬 원(5), 테두리 타원(6), 꽉 찬 타원(7), 테두리 삼각형(8), 꽉 찬 삼각형(9)
             var nowTool = tool[0];
 
             // 초기화
@@ -28,31 +28,98 @@
             var dragging = false;
             function draw(curX, curY) {
                 switch(nowTool){
-                    case 0:
-                    case 1:
+                    case 0: // 연필
+                    case 1: // 직선
                         context.beginPath();
                         context.moveTo(startX, startY);
                         context.lineTo(curX, curY);
                         context.stroke();
                         break;
-                    case 2:
+                    case 2: // 사각형
                         context.beginPath();
                         context.strokeRect(startX, startY, curX - startX, curY - startY);
                         break;
-                    case 3:
+                    case 3: // 꽉 찬 사각형
                         context.beginPath();
                         context.fillRect(startX, startY, curX - startX, curY - startY);
                         break;
-                    case 4:
+                    case 4: // 원
                         context.beginPath();
-                        context.arc( curX, curY, 180, 0, Math.PI * 2);
+                        var circle = {
+                            X: Math.round((startX + curX) / 2),
+                            Y: Math.round((startY + curY) / 2),
+                            R: Math.round(Math.abs(curY - startY) / 2)
+                        };
+                        context.arc(circle.X, circle.Y, circle.R, 0, Math.PI * 2);
                         context.stroke();
                         break;
-                    case 5:
+                    case 5: // 꽉 찬 원
                         context.beginPath();
-                        context.arc( curX, curY, 180, 0, Math.PI * 2);
+                        var circle = {
+                            X: Math.round((startX + curX) / 2),
+                            Y: Math.round((startY + curY) / 2),
+                            R: Math.round(Math.abs(curY - startY) / 2)
+                        };
+                        context.arc(circle.X, circle.Y, circle.R, 0, Math.PI * 2);
                         context.closePath();
                         context.fill(); // 내부 칠하기
+                        break;
+                    case 6: // 타원
+                        context.beginPath();
+                        var ellipse = {
+                            X: Math.round((startX + curX) / 2),
+                            Y: Math.round((startY + curY) / 2),
+                            A: Math.round(Math.abs(curX - startX) / 2),
+                            B: Math.round(Math.abs(curY - startY) / 2)
+                        };
+                        context.ellipse(ellipse.X, ellipse.Y, ellipse.A, ellipse.B, 0, 0, 2 * Math.PI);
+                        context.closePath();
+                        context.stroke();
+                        break;
+                    case 7: // 꽉 찬 타원
+                        context.beginPath();
+                        var ellipse = {
+                            X: Math.round((startX + curX) / 2),
+                            Y: Math.round((startY + curY) / 2),
+                            A: Math.round(Math.abs(curX - startX) / 2),
+                            B: Math.round(Math.abs(curY - startY) / 2)
+                        };
+                        context.ellipse(ellipse.X, ellipse.Y, ellipse.A, ellipse.B, 0, 0, 2 * Math.PI);
+                        context.closePath();
+                        context.fill();
+                        break;
+                    case 8: // 삼각형
+                        context.beginPath();
+                        var tri = {
+                            W: curX - startX,
+                            H: curY - startY,
+                            P: {
+                                X: startX * 2 - curX,
+                                Y: curY
+                            }
+                        };
+                        context.moveTo(startX, startY);
+                        context.lineTo(curX, curY);
+                        context.lineTo(tri.P.X, tri.P.Y);
+                        context.lineTo(startX, startY);
+                        context.stroke();
+                        break;
+                    case 9: // 꽉 찬 삼각형
+                        context.beginPath();
+                        var tri = {
+                            W: curX - startX,
+                            H: curY - startY,
+                            P: {
+                                X: startX * 2 - curX,
+                                Y: curY
+                            }
+                        };
+                        context.moveTo(startX, startY);
+                        context.lineTo(curX, curY);
+                        context.lineTo(tri.P.X, tri.P.Y);
+                        context.lineTo(startX, startY);
+                        context.closePath();
+                        context.fill();
                         break;
                 }
             }
@@ -64,6 +131,10 @@
                     case 3:
                     case 4:
                     case 5:
+                    case 6:
+                    case 7:
+                    case 8:
+                    case 9:
                         startX = e.offsetX;
                         startY = e.offsetY;
                         dragging = true;
@@ -81,6 +152,10 @@
                     case 3:
                     case 4:
                     case 5:
+                    case 6:
+                    case 7:
+                    case 8:
+                    case 9:
                         var curX = e.offsetX;
                         var curY = e.offsetY;
                         draw(curX, curY);
@@ -104,6 +179,10 @@
                     case 3:
                     case 4:
                     case 5:
+                    case 6:
+                    case 7:
+                    case 8:
+                    case 9:
                         if(!dragging){
                             return;
                         }
@@ -112,6 +191,8 @@
                         var curY = e.offsetY;
                         draw(curX, curY);
                         break;
+
+
                 }
                 
             }
@@ -131,25 +212,6 @@
             function changeColor(value) {
                 context.strokeStyle = value;
                 context.fillStyle = value;
-            }
-            // 타원 그리기
-            function circle(x, y, w, h){
-                var kappa = 0.5522848;
-                var ox = (w / 2) * kappa,
-                    oy = (h / 2) * kappa,
-                    xe = x + w,
-                    ye = y + h,
-                    wm = x + w / 2,
-                    ym = y + h / 2;
-                
-                context.beginPath();
-                context.moveTo(x, ym);
-                context.bezierCurveTo(x, ym - oy, xm - ox, y, xm, y);
-                context.bezierCurveTo(xm + ox, y, xe, ym - oy, xe, ym);
-                context.bezierCurveTo(xe, ym + oy, xm + ox, ye, xm, ye);
-                context.bezierCurveTo(xm - ox, ye, x, ym + oy, x, ym);
-                context.closePath();
-                context.stroke();
             }
         </script>
         <style>
@@ -214,14 +276,14 @@
                     <td><input type="button" id="clearBtn" value="C" onclick="canvClear()"></td>
                     <td><input type="number" id="widthInput" value="5" min="0" max="30" onchange="context.lineWidth=this.value"></td>
                     <td><input type="color" id="colorInput" value="#000000" onchange="changeColor(this.value)"></td>
-                    <td><input type="button" style="background: red;" onclick="context.strokeStyle = 'red'"></td>
-                    <td><input type="button" style="background: blue;" onclick="context.strokeStyle = 'blue'"></td>
-                    <td><input type="button" style="background: skyblue;" onclick="context.strokeStyle = 'skyblue'"></td>
-                    <td><input type="button" style="background: green;" onclick="context.strokeStyle = 'green'"></td>
-                    <td><input type="button" style="background: pink;" onclick="context.strokeStyle = 'pink'"></td>
-                    <td><input type="button" style="background: yellow;" onclick="context.strokeStyle = 'yellow'"></td>
-                    <td><input type="button" style="background: gray;" onclick="context.strokeStyle = 'gray'"></td>
-                    <td><input type="button" style="background: black;" onclick="context.strokeStyle = 'black'"></td>
+                    <td><input type="button" style="background: red;" onclick="changeColor('red')"></td>
+                    <td><input type="button" style="background: blue;" onclick="changeColor('blue')"></td>
+                    <td><input type="button" style="background: skyblue;" onclick="changeColor('skyblue')"></td>
+                    <td><input type="button" style="background: green;" onclick="changeColor('green')"></td>
+                    <td><input type="button" style="background: pink;" onclick="changeColor('pink')"></td>
+                    <td><input type="button" style="background: yellow;" onclick="changeColor('yellow')"></td>
+                    <td><input type="button" style="background: gray;" onclick="changeColor('gray')"></td>
+                    <td><input type="button" style="background: black;" onclick="changeColor('black')"></td>
                 </tr>
             </table>
             <table style="padding: 10px 20px; margin: auto;">
@@ -232,6 +294,10 @@
                     <td><input type="button" value="꽉 찬 사각형" style="width: 100%;" onclick="setTool(3)"></td>
                     <td><input type="button" value="원" onclick="setTool(4)"></td>
                     <td><input type="button" value="꽉 찬 원" style="width: 100%;" onclick="setTool(5)"></td>
+                    <td><input type="button" value="타원" onclick="setTool(6)"></td>
+                    <td><input type="button" value="꽉 찬 타원" style="width: 100%;" onclick="setTool(7)"></td>
+                    <td><input type="button" value="삼각형" style="width: 100%;" onclick="setTool(8)"></td>
+                    <td><input type="button" value="꽉 찬 삼각형" style="width: 100%;" onclick="setTool(9)"></td>
                 </tr>
             </table>
         </div>
