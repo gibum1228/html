@@ -52,19 +52,28 @@
             function draw(curX, curY) {
                 switch(nowTool){
                     case 0: // 연필
+                        bufContext.beginPath();
+                        bufContext.moveTo(startX, startY);
+                        bufContext.lineTo(curX, curY);
+                        bufContext.stroke();
+
+                        break;
                     case 1: // 직선
                         context.beginPath();
                         context.moveTo(startX, startY);
                         context.lineTo(curX, curY);
                         context.stroke();
+
                         break;
                     case 2: // 사각형
                         context.beginPath();
                         context.strokeRect(startX, startY, curX - startX, curY - startY);
+
                         break;
                     case 3: // 꽉 찬 사각형
                         context.beginPath();
                         context.fillRect(startX, startY, curX - startX, curY - startY);
+
                         break;
                     case 4: // 원
                         context.beginPath();
@@ -75,6 +84,7 @@
                         };
                         context.arc(circle.X, circle.Y, circle.R, 0, Math.PI * 2);
                         context.stroke();
+                        
                         break;
                     case 5: // 꽉 찬 원
                         context.beginPath();
@@ -86,6 +96,7 @@
                         context.arc(circle.X, circle.Y, circle.R, 0, Math.PI * 2);
                         context.closePath();
                         context.fill(); // 내부 칠하기
+
                         break;
                     case 6: // 타원
                         context.beginPath();
@@ -98,6 +109,7 @@
                         context.ellipse(ellipse.X, ellipse.Y, ellipse.A, ellipse.B, 0, 0, 2 * Math.PI);
                         context.closePath();
                         context.stroke();
+
                         break;
                     case 7: // 꽉 찬 타원
                         context.beginPath();
@@ -110,6 +122,7 @@
                         context.ellipse(ellipse.X, ellipse.Y, ellipse.A, ellipse.B, 0, 0, 2 * Math.PI);
                         context.closePath();
                         context.fill();
+
                         break;
                     case 8: // 삼각형
                         context.beginPath();
@@ -126,6 +139,7 @@
                         context.lineTo(tri.P.X, tri.P.Y);
                         context.lineTo(startX, startY);
                         context.stroke();
+
                         break;
                     case 9: // 꽉 찬 삼각형
                         context.beginPath();
@@ -143,6 +157,7 @@
                         context.lineTo(startX, startY);
                         context.closePath();
                         context.fill();
+
                         break;
                 }
             }
@@ -164,34 +179,71 @@
                         break;
                 }
             }
-            function up(e) {
+            function up(e) { // 마우스 버튼이 떼어져있을 때
+                var curX = e.offsetX;
+                var curY = e.offsetY;
+                draw(curX, curY);
                 dragging = false;
+
                 switch(nowTool){
                     case 0:
-                        dragging = false;
                         break;
                     case 1:
+                        bufContext.beginPath();
+                        bufContext.moveTo(startX, startY);
+                        bufContext.lineTo(curX, curY);
+                        bufContext.stroke();
+
                         break;
                     case 2:
-                        break;
                     case 3:
+                        bufContext.beginPath();
+                        if(nowTool == 2){
+                            bufContext.strokeRect(startX, startY, curX - startX, curY - startY);
+                        }else{
+                            bufContext.fillRect(startX, startY, curX - startX, curY - startY);
+                        }
+
                         break;
                     case 4:
-                        break;
                     case 5:
+                        var circle = {
+                            X: Math.round((startX + curX) / 2),
+                            Y: Math.round((startY + curY) / 2),
+                            R: Math.round(Math.abs(curY - startY) / 2)
+                        };
+                        bufContext.beginPath();
+                        bufContext.arc(circle.X, circle.Y, circle.R, 0, Math.PI * 2);
+
+                        if(nowTool == 4){
+                            bufContext.stroke();
+                        }else{
+                            bufContext.closePath();
+                            bufContext.fill(); // 내부 칠하기
+                        }
+
                         break;
                     case 6:
-                        break;
                     case 7:
+                        var ellipse = {
+                            X: Math.round((startX + curX) / 2),
+                            Y: Math.round((startY + curY) / 2),
+                            A: Math.round(Math.abs(curX - startX) / 2),
+                            B: Math.round(Math.abs(curY - startY) / 2)
+                        };
+                        bufContext.beginPath();
+                        bufContext.ellipse(ellipse.X, ellipse.Y, ellipse.A, ellipse.B, 0, 0, 2 * Math.PI);
+
+                        if(nowTool == 6){
+                            bufContext.stroke();
+                        }else{
+                            bufContext.closePath();
+                            bufContext.fill();
+                        }
+
                         break;
                     case 8:
-                        break;
                     case 9:
-                        var curX = e.offsetX;
-                        var curY = e.offsetY;
-                        draw(curX, curY);
-                        dragging = false;
-
                         var tri = {
                             W: curX - startX,
                             H: curY - startY,
@@ -200,13 +252,19 @@
                                 Y: curY
                             }
                         };
-
                         bufContext.beginPath();
                         bufContext.moveTo(startX, startY);
                         bufContext.lineTo(curX, curY);
                         bufContext.lineTo(tri.P.X, tri.P.Y);
                         bufContext.lineTo(startX, startY);
-                        bufContext.stroke();
+
+                        if(nowTool == 8){
+                            bufContext.stroke();
+                        }else{
+                            bufContext.closePath();
+                            bufContext.fill();
+                        }
+
                         break;
                 }
             }
