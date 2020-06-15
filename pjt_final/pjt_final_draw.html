@@ -29,11 +29,12 @@
                 bufCanvas.style.top = '30%';
                 bufCanvas.style.background = "aliceblue";
                 bufCanvas.style.border = "1px solid black";
+                pDiv.appendChild(bufCanvas);
+
                 bufContext = bufCanvas.getContext("2d");
                 bufContext.lineWidth = document.getElementById("widthInput").value;
                 bufContext.strokeStyle = document.getElementById("colorInput").value;
                 bufContext.fillStyle = document.getElementById("colorInput").value;
-                pDiv.appendChild(bufCanvas);
 
                 canvas.addEventListener("mousemove", function(e) { move(e) }, false);
                 canvas.addEventListener("mousedown", function(e) { down(e) }, false);
@@ -321,6 +322,10 @@
                 bufContext.strokeStyle = value;
                 bufContext.fillStyle = value;
             }
+            function changeLine(value){
+                bufContext.lineWidth = value;
+                context.lineWidth = value;
+            }
         </script>
         <style>
             body {
@@ -382,7 +387,7 @@
             <table style="padding: 10px 20px; margin: auto;">
                 <tr>
                     <td><input type="button" id="clearBtn" value="C" onclick="canvClear()"></td>
-                    <td><input type="number" id="widthInput" value="5" min="0" max="30" onchange="context.lineWidth=this.value"></td>
+                    <td><input type="number" id="widthInput" value="5" min="0" max="50" onchange="changeLine(this.value)"></td>
                     <td><input type="color" id="colorInput" value="#000000" onchange="changeColor(this.value)"></td>
                     <td><input type="button" style="background: red;" onclick="changeColor('red')"></td>
                     <td><input type="button" style="background: blue;" onclick="changeColor('blue')"></td>
