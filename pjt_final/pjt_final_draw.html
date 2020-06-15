@@ -4,6 +4,9 @@
         <title>그림판</title>
         <script>
             var canvas, context;
+            var bufCanvas, bufContext;
+            var pDiv;
+
             var tool = new Array();
             tool = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
             // 연필(0), 직선(1), 테두리 사각형(2), 꽉 찬 사각형(3), 테두리 원(4), 꽉 찬 원(5), 테두리 타원(6), 꽉 찬 타원(7), 테두리 삼각형(8), 꽉 찬 삼각형(9)
@@ -17,10 +20,30 @@
                 context.strokeStyle = document.getElementById("colorInput").value;
                 context.fillStyle = document.getElementById("colorInput").value;
 
+                pDiv = document.getElementById("canvasBox");
+                bufCanvas = document.createElement("canvas");
+                bufCanvas.width = canvas.width;
+                bufCanvas.height = canvas.height;
+                bufCanvas.style.position = "absolute";
+                bufCanvas.style.left = '10%';
+                bufCanvas.style.top = '30%';
+                bufCanvas.style.background = "aliceblue";
+                bufCanvas.style.border = "1px solid black";
+                bufContext = bufCanvas.getContext("2d");
+                bufContext.lineWidth = document.getElementById("widthInput").value;
+                bufContext.strokeStyle = document.getElementById("colorInput").value;
+                bufContext.fillStyle = document.getElementById("colorInput").value;
+                pDiv.appendChild(bufCanvas);
+
                 canvas.addEventListener("mousemove", function(e) { move(e) }, false);
                 canvas.addEventListener("mousedown", function(e) { down(e) }, false);
                 canvas.addEventListener("mouseup", function(e) { up(e) }, false);
                 canvas.addEventListener("mouseout", function(e) { out(e) }, false);
+
+                // bufCanvas.addEventListener("mousemove", function(e) { move(e) }, false);
+                // bufCanvas.addEventListener("mousedown", function(e) { down(e) }, false);
+                // bufCanvas.addEventListener("mouseup", function(e) { up(e) }, false);
+                // bufCanvas.addEventListener("mouseout", function(e) { out(e) }, false);
             }
 
             var startX = 0, startY = 0; // 드래깅동안, 처음 마우스가 눌러진 좌표
@@ -148,18 +171,42 @@
                         dragging = false;
                         break;
                     case 1:
+                        break;
                     case 2:
+                        break;
                     case 3:
+                        break;
                     case 4:
+                        break;
                     case 5:
+                        break;
                     case 6:
+                        break;
                     case 7:
+                        break;
                     case 8:
+                        break;
                     case 9:
                         var curX = e.offsetX;
                         var curY = e.offsetY;
                         draw(curX, curY);
                         dragging = false;
+
+                        var tri = {
+                            W: curX - startX,
+                            H: curY - startY,
+                            P: {
+                                X: startX * 2 - curX,
+                                Y: curY
+                            }
+                        };
+
+                        bufContext.beginPath();
+                        bufContext.moveTo(startX, startY);
+                        bufContext.lineTo(curX, curY);
+                        bufContext.lineTo(tri.P.X, tri.P.Y);
+                        bufContext.lineTo(startX, startY);
+                        bufContext.stroke();
                         break;
                 }
             }
@@ -203,6 +250,7 @@
             // 캔버스 화면 지우기
             function canvClear() {
                 context.clearRect(0, 0, canvas.width, canvas.height);
+                bufContext.clearRect(0, 0, canvas.width, canvas.height);
             }
             // 툴 설정
             function setTool(toolNum) {
@@ -212,6 +260,8 @@
             function changeColor(value) {
                 context.strokeStyle = value;
                 context.fillStyle = value;
+                bufContext.strokeStyle = value;
+                bufContext.fillStyle = value;
             }
         </script>
         <style>
@@ -224,7 +274,7 @@
             }
             #myCanvas {
                 display: block;
-                margin: 50px auto;
+                margin: 0px auto;
             }
             .tool {
                 width: 85%;
@@ -301,7 +351,9 @@
                 </tr>
             </table>
         </div>
-        <canvas id="myCanvas" style="background: aliceblue;" width="1500" height="500"></canvas>
+        <div id="canvasBox">
+            <canvas id="myCanvas" style="background: aliceblue; position: absolute; left: 10%; top: 30%; opacity: 0.1; z-index: 5;" width="1500" height="500"></canvas>
+        </div>
         <div class="footer">
             <p>IT융합자율학부 201814066 김기범</p>
         </div>
