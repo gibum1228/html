@@ -1,0 +1,65 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        div#app {
+            margin: 20px auto;
+            padding: 20px;
+            width: 300px;
+            border: 1px solid gray;
+            box-shadow: 5px 5px 5px #aaa;
+        }
+
+        p {
+            font-size: 15pt;
+            color: blue;
+        }
+
+        input {
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>입력 양식</h1>
+        <div>
+            <input type="text" placeholder="이름을 입력하세요" v-model="name"/>
+        </div>
+        <div>
+            <input type="radio" value="male" v-model="sex"> 남자
+            <input type="radio" value="female" v-model="sex"> 여자
+        </div>
+        <select v-model="major">
+            <option value="">전공을 입력하세요</option>
+            <option value="소프">소프트웨어공학</option>
+        </select>
+        <div>
+            <input type="checkbox" v-model="value" /> 활성화
+        </div>
+        <hr />
+        <div>
+            <p>이름: {{ name }}</p>
+            <p>성별: {{ sex }}</p>
+            <p>전공: {{ major }}</p>
+            <p>활성화: {{ value }}</p>
+        </div>
+    </div>
+    <script type="text/javascript"> 
+    var app = new Vue({ 
+        el: '#app', 
+        data: {
+            name: "",
+            sex: "",
+            major: "",
+            value: false 
+        } 
+    })
+    </script>
+</body>
+
+</html>
