@@ -5,20 +5,19 @@
 */
 
 let arr = []
-let count = 0
+let check = 0
 
 for(let i = 0; i < 100; i++){
     arr[i] = (Math.floor((Math.random() * 100) + 1))
     if(arr[i] % 2 == 0) check++
 }
 
-arr.reduce((a, b) => {
-    if(a != undefined && a % 2 == 0){
-        count++
-    }
+console.log(check)
+// reduce(콜백함수 [, initValue])를 이용 => initValue 값이 a값이 되며, b 인덱스가 0부터 시작함 (*원래는 a가 인덱스 0, b가 인덱스 1부터 시작함)
+console.log(arr.reduce((a, b) => { 
     if(b % 2 == 0){
-        count++
+        a++
     }
-})
 
-console.log(count)
+    return a
+}, 0))
