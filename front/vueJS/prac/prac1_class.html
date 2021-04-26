@@ -40,7 +40,7 @@
         <hr />
         <div> 
             <label>합계</label> 
-            <input type="text" v-model="total" v-bind:style="{ color:  }"/> 
+            <input type="text" v-model="total" v-bind:style="{ color: color }"/> 
         </div>
     </div>
     <script type="text/javascript"> 
@@ -49,17 +49,17 @@
         data: { 
             quantity: 11, 
             price: 1500,
-            color: "#f00"
+            color: "#000"
         }, 
         computed: { 
-            total: { 
+            total: {
                 get() { 
-                    return this.quantity * this.price; 
+                    return this.quantity * this.price;
                 }, 
                 set(value) { 
                     this.quantity = value / this.price; 
                 } 
-            } 
+            }
         } 
     })
     </script>
