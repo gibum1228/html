@@ -1,9 +1,12 @@
 function deepCopy(persons) { 
     return persons.reduce((arr, obj, i) => {
-        arr[i] = {};
+        arr[i] = {
+            name: obj.name,
+            age: obj.age
+        };
 
-        arr[i].name = obj.name;
-        arr[i].age = obj.age;
+        // arr[i].name = obj.name;
+        // arr[i].age = obj.age;
 
         return arr;
     }, [])
