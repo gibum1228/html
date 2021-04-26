@@ -1,0 +1,86 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        div#app {
+            padding: 30px;
+            margin: 30px auto;
+            width: 400px;
+            border: 1px solid #ccc;
+            box-shadow: 3px 3px 3px #aaa;
+        }
+
+        div#app div {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+        }
+
+        input[type=text] {
+            padding: 4px;
+        }
+        .red {
+            color: red;
+        }
+        .black {
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>주문</h1>
+        <div> 
+            <label>수량</label> 
+            <input type="text" v-model="quantity" /> 
+        </div>
+        <div> 
+            <label>가격</label> 
+            <input type="text" v-model="price" /> 
+        </div>
+        <hr />
+        <div> 
+            <label>합계</label> 
+            <input type="text" v-model="total" v-bind:class="{ red: color == true, black: color == false }"/> 
+        </div>
+    </div>
+    <script type="text/javascript"> 
+    var app = new Vue({ 
+        el: '#app', 
+        data: { 
+            quantity: 11, 
+            price: 1500,
+            color: true
+        }, 
+        computed: { 
+            total: {
+                /*
+                    total 금액이 1만원 이상이라면, 빨간 글씨로 표시되게 함
+                    아니라면 검정 글씨로 변경
+                */
+                get() { 
+                    let result = this.quantity * this.price;
+                    
+                    if(result >= 10000){ // totla 값이 뭐냐에 따라
+                        this.color = true;
+                    }else{
+                        this.color = false; // 블랙
+                    }
+
+                    return result;
+                }, 
+                set(value) { 
+                    this.quantity = value / this.price; 
+                } 
+            }
+        } 
+    })
+    </script>
+</body>
+
+</html>
