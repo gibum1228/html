@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>201814066 김기범</title>
+</head>
+<body>
+    <div id="app" style="margin: 50px 50px;">
+        <div style="height: 100px;">
+            <input type="text" v-model="num">
+            <button v-on:click="add">생성</button>
+        </div>
+        <div>
+            <span v-for="arr in db" style="border: 1px solid black; margin: 5px; padding: 5px;">{{ arr }}</span>
+        </div>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                num: 0,
+                db: []
+            },
+            methods: {
+                add() {
+                    this.db = []
+                    for(let i = 0; i < this.num; i++){
+                        this.db.push(Math.floor(Math.random() * 10));
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
