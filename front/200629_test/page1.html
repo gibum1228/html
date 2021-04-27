@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>final1</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .container {
+            width: 500px;
+            height: 100px;
+            margin-top: 50px;
+            padding-left: 20px;
+            border: 1px solid black;
+            background-color: rgb(254, 255, 192);
+            line-height: 100px;
+        }
+    </style>
+<body>
+    <h1>페이지1</h1>
+    <div id="app">
+        <input type="text" v-model="text">
+        <div class="container">
+            <span><strong>Child: {{ text }}</strong></span>
+        </div>
+        <div class="container">
+            <span><strong>Child: {{ text }}</strong></span>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: "#app",
+            data: {
+                text: "안녕하세요"
+            }
+        })
+    </script>
+</body>
+</html>
