@@ -1,16 +1,17 @@
 function doSomething(s, index) {
     let sArr = s.split(",")
     sArr.splice(index, 1)
-    let str = ""
+    
+    // 없어도 됨
+    // let str = ""
+    // for(let i = 0; i < sArr.length; i++){
+    //     str += sArr[i]
+    //     if(i < (sArr.length - 1)){
+    //         str += ","
+    //     }
+    // }
 
-    for(let i = 0; i < sArr.length; i++){
-        str += sArr[i]
-        if(i < (sArr.length - 1)){
-            str += ","
-        }
-    }
-
-    return str
+    return sArr.toString() // toString()은 ','로 묶어줌
 }
 
 let s = "zero,one,two,three";
