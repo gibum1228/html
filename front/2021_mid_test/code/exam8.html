@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>201814066</title>
+    <style>
+        div#app { 
+            margin: 20px auto; padding: 20px; width: 300px; border: 1px solid gray; box-shadow: 5px 5px 5px #aaa;
+        } 
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>입력</h1>
+        <input type="text" v-model="str">
+        <hr>
+        <p>{{ getStr() }}</p>
+    </div>
+    <script>
+        var arr = new Vue({
+            el: "#app",
+            data: {
+                str: ""
+            },
+            methods: {
+                getStr() {
+                    return String(this.str).toUpperCase();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

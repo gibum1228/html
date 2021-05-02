@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>201814066</title>
+    <style>
+        div#app { 
+            margin: 20px auto; padding: 20px; width: 300px; border: 1px solid gray; box-shadow: 5px 5px 5px #aaa;
+        } 
+        .yellow {
+            background-color: #ffb;
+        }
+        .green {
+            background-color: #bfb;
+        }
+        .red {
+            background-color: #fbb;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" v-bind:class="color">
+        <h1>buttons</h1>
+        <button v-on:click="yellow">yellow</button>
+        <button v-on:click="green">green</button>
+        <button v-on:click="red">red</button>
+    </div>
+    <script>
+        var arr = new Vue({
+            el: "#app",
+            data: {
+                color: "yellow"
+            },
+            methods: {
+                yellow() {
+                    this.color = "yellow";
+                },
+                green() {
+                    this.color = "green";
+                },
+                red() {
+                    this.color = "red";
+                }
+            }
+        });
+    </script>
+</body>
+</html>
