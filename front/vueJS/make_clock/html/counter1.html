@@ -1,0 +1,45 @@
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        div#app {
+            width: 800px;
+            height: 500px;
+            padding: 30px;
+            border: 1px solid #ccc;
+            box-shadow: 3px 3px 3px #aaa;
+        }
+        .container {
+            border: 1px solid black;
+            text-align: center;
+            height: 300px;
+            line-height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>counter1</h1>
+        <div class="container">
+            {{ num }}
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var app = new Vue({
+            el: '#app',
+            data: {
+                num: 0
+            },
+            mounted: function() {
+                let timer = setInterval(() => {
+                    this.num++;
+                    if(this.num === 10){
+                        clearInterval(timer);
+                    }
+                }, 1000)
+            }
+        })
+    </script>
+</body>
