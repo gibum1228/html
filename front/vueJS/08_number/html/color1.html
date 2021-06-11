@@ -1,0 +1,71 @@
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        div#app {
+            padding: 30px;
+            border: 1px solid #ccc;
+            box-shadow: 3px 3px 3px #aaa;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+        td {
+            padding: 25px;
+            text-align: center;
+            border: 1px solid black;
+        }
+        .yellow {
+            background-color: #ffa;
+        }
+        .white {
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <table>
+            <tr v-for="(r, index1) in results">
+                <td v-for="(c, index2) in r" @click="changeColor(index1, index2)" :class="results[index1][index2].backColor">
+                    {{ c.num }}
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script type="text/javascript">
+        var app = new Vue({
+            el: '#app',
+            data: {
+                row_size: 3,
+                col_size: 3,
+                color: 0,
+                results: []
+            },
+            created() {
+                for(let i = 0; i < this.row_size; i++){
+                    this.results[i] = []
+                    for(let j = 0; j < this.col_size; j++){
+                        this.results[i][j] = { num: (i * this.row_size) + j + 1, backColor: 'white'};
+                    }
+                }
+                console.log(this.results)
+            },
+            methods: {
+                changeColor(i1, i2) {
+                    console.log(this.results[i1][i2].backColor)
+                    if(this.results[i1][i2].backColor == 'white'){
+                        Vue.set(this.results[i1][i2], 'backColor', 'yellow')
+                    }else{
+                        Vue.set(this.results[i1][i2], 'backColor', 'white')
+                    }
+                    console.log(this.results[i1][i2].backColor)
+                    this.$forceUpdate()
+                }
+            }
+        })
+    </script>
+</body>
