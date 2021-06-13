@@ -1,26 +1,18 @@
 <template>
   <div id="app">
-    <router-link to='/child.html'>Child</router-link>
-    <a href="page1.html">페이지1</a>
-    <router-view></router-view>
+    <a href="page1.html">페이지 1</a> <br />
+    <a href="page2.html">페이지 2</a> <br />
+    <a href="page3.html">페이지 3</a> <br />
+    <a href="page4.html">페이지 4</a> <br />
+    <a href="page5.html">페이지 5</a> <br />
   </div>
 </template>
 
+
 <script>
-import VueRouter from 'vue-router'
-import Child from './Child.vue'
-
-var router = new VueRouter({
-  routes: [
-    {path: '/child.html', component: Child }
-  ]
-})
-
-export default {
-  name: 'App',
-  router
-}
+export default { name: "App" };
 </script>
+
 
 <style>
 div#app {
